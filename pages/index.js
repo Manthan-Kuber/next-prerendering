@@ -7,7 +7,7 @@ function Home() {
       <Link href={"/users"}>
         <a>Users</a>
       </Link>
-      <Link href="/posts">
+      <Link href={"/posts"}>
         <a>Posts</a>
       </Link>
     </>
