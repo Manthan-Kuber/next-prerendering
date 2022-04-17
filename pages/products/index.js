@@ -1,8 +1,8 @@
 function ProductList({ products }) {
   return (
     <>
-      <h1>List of Products</h1>
-      {products.map((product) => {
+      <h1>List of products</h1>
+      {products.map(product => {
         return (
           <div key={product.id}>
             <h2>
@@ -10,21 +10,23 @@ function ProductList({ products }) {
             </h2>
             <hr />
           </div>
-        );
+        )
       })}
     </>
-  );
+  )
 }
 
-export default ProductList;
+export default ProductList
 
 export async function getStaticProps() {
-  const response = await fetch("http://localhost:4000/products");
-  const data = await response.json();
+  console.log('Generating / Regenerating ProductList')
+  const response = await fetch('http://localhost:4000/products')
+  const data = await response.json()
 
   return {
     props: {
-      products: data,
+      products: data
     },
-  };
+    revalidate: 30
+  }
 }
